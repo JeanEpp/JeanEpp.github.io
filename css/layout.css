@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Marvel&display=swap');
+:root {
+    --bs-white: #F4EBE1;
+    --bs-dark: #2A2828;
+    --bs-primary: #5A202E;
+    --bs-secondary: #DC6D04;
+    font-family: 'Marvel', sans-serif;
+    font-weight: bolder;
+    font-size: 18px;
+}
+body {
+    background-color: var(--bs-white);
+}
+input[type="text"], input[type="email"], select, textarea {
+    background-color: var(--bs-white);
+    color: var(--bs-dark);
+    transition: 0.2s ease-in-out;
+    border-style: none;
+    border-radius: 15px;
+    font-size: 16px;
+    padding: 5px;
+}
+button {
+    border-style: none;
+    border-radius: 30px;
+    border: var(--bs-white) solid;
+    color: var(--bs-white);
+    padding: 5px;
+    background-color: var(--bs-dark);
+    transition: 0.2s ease-in-out;
+    font-family: 'Marvel', sans-serif;
+    font-weight: bolder;
+    font-size: 16px;
+}
+button:hover {
+    border-color: var(--bs-secondary);
+    color: var(--bs-secondary);
+}
+header a {
+    border: 2px solid;
+    color: var(--bs-white);
+    border-color: var(--bs-white);
+    border-radius: 30px;
+    transition: 0.2s ease-in-out;
+    text-decoration: none;
+}
+header a.active {
+    border-color: var(--bs-secondary);
+    color: var(--bs-secondary);;
+}
+main .border {
+    border: 2px var(--bs-dark) solid;
+}
+.img-1 {
+    width: 170px;
+    height: 80px;
+}
+.img-content {
+    width: 170px;
+    height: 125px;
+}
+.img-2 {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+.border-right {
+    border-right: 2px black solid;
+}
+.w-100 {
+    width: 100%;
+}
+.rounded {
+    border-radius: 90px;
+}
+header, footer {
+    background-color: var(--bs-dark);
+}
+footer i, footer h2 {
+    color: var(--bs-white);
+    border-color: var(--bs-white);
+    border-radius: 30px;
+    transition: 0.2s ease-in-out;
+}
+header a:hover {
+    color: var(--bs-secondary);
+    border-color: var(--bs-secondary);
+}
+.fa-facebook:hover {
+    color: #3B5998;
+}
+.fa-twitter:hover {
+    color: #1DA1F2;
+}
+.fa-youtube:hover {
+    color: #C4302B;
+}
+footer i {
+    color: var(--bs-white);
+    transition: 0.2s ease-in-out;
+}
+.tabcontent {
+    display: none;
+    opacity: 0;
+}
+.tabcontent:hover {
+    display: flex;
+    opacity: 1;
+}
+.tablinks button:hover, .tablinks:hover i {
+    color: var(--bs-secondary);
+    transition: 0.2s ease-in-out;
+}
+.tablinks > button {
+    border-radius: 0px;
+}
+.tablinks[tab-1]:hover ~ #content > #content1,
+.tablinks[tab-2]:hover ~ #content > #content2,
+.tablinks[tab-3]:hover ~ #content > #content3,
+.tablinks[tab-4]:hover ~ #content > #content4,
+.tablinks[tab-5]:hover ~ #content > #content5 {
+    display: flex;
+    opacity: 1;
+    animation: animIn 1s;
+}
+.card {
+    border-radius: 15px;
+    background-color: var(--bs-dark);
+    padding: 15px;
+    color: var(--bs-white);
+}
+@keyframes animIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
