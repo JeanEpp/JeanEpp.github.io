@@ -1,0 +1,266 @@
+{
+    "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+    "basics": {
+      "name": "Jean EPP",
+      "label": "Student",
+      "image": "",
+      "email": "jean.epp@epitech.eu",
+      "phone": "+33 6 52 06 57 57",
+      "url": "",
+      "summary": "I'm looking for a full-time internship of 4 to 6 mounths and ideally starting in march 2022 end endding at end august 2022 in web, mobile or software development.",
+      "location": {
+        "countryCode": "FR",
+        "address": "4 rue Hofgasse ,57820 Dannelbourg, France"
+      },
+      "profiles": [
+        {
+          "network": "LinkedIn",
+          "username": "jean-epp-881862158",
+          "url": "https://www.linkedin.com/in/jean-epp-881862158/"
+        }
+      ]
+    },
+    "work": [
+      {
+        "name": "SCHOTT",
+        "position": "Intern BI Analyst - Project Manager",
+        "startDate": "2020-11-30",
+        "endDate": "2021-07-31",
+        "highlights": [],
+        "summary": "Analysis of current data management processes, implementation of automating solutions for Excel imports to SAP and SQL Server databases and creation of visual statistics reports for plant's executives using PowerBI.\nMigration of time management software. Offers analysis, needs gathering and transmitting, interventions preparation and sheduling",
+        "url": "https://www.linkedin.com/company/schott/",
+        "location": "Troisfontaines, Grand Est, France"
+      },
+      {
+        "name": "KUHN Group",
+        "position": "Web Developer",
+        "startDate": "2019-07-31",
+        "endDate": "2019-12-31",
+        "highlights": [],
+        "summary": "Development of MyKuhn and KUHN EasyTransfer in C# ASP.NET MVC",
+        "url": "https://www.linkedin.com/company/kuhn-group/",
+        "location": "Saverne, Grand Est, France"
+      },
+      {
+        "name": "Bernhard Reibel",
+        "position": "Picker/Callerman",
+        "startDate": "2018-09-30",
+        "endDate": "2018-09-30",
+        "highlights": [],
+        "url": "",
+        "location": "Châtenois"
+      },
+      {
+        "name": "Bernhard Reibel",
+        "position": "Picker",
+        "startDate": "2017-09-30",
+        "endDate": "2017-09-30",
+        "highlights": [],
+        "url": "",
+        "location": "Châtenois, France"
+      }
+    ],
+    "volunteer": [],
+    "education": [
+      {
+        "institution": "EPITECH - European Institute of Technology",
+        "area": "Informatics",
+        "studyType": "Master 2 (M2)",
+        "startDate": "2017-12-31",
+        "endDate": "2023-12-31",
+        "score": "",
+        "courses": []
+      },
+      {
+        "institution": "ESCP Business School",
+        "area": "Entrepreneuriat / études entrepreneuriales",
+        "studyType": "",
+        "startDate": "2022-09-30",
+        "endDate": "2022-12-31",
+        "score": "",
+        "courses": []
+      },
+      {
+        "institution": "University of Quebec at Rimouski",
+        "area": "Information techonologies",
+        "studyType": "Informatic Certificat",
+        "startDate": "2021-09-30",
+        "endDate": "2022-04-30",
+        "score": "2.57",
+        "courses": []
+      }
+    ],
+    "awards": [],
+    "certificates": [],
+    "publications": [],
+    "skills": [
+      {
+        "name": "Microsoft Power BI",
+        "level": "",
+        "keywords": []
+      },
+      {
+        "name": "SQL Server Integration Services (SSIS)",
+        "level": "",
+        "keywords": []
+      },
+      {
+        "name": "Microsoft SQL Server",
+        "level": "",
+        "keywords": []
+      },
+      {
+        "name": "MongoDB",
+        "level": "",
+        "keywords": []
+      },
+      {
+        "name": "Git",
+        "level": "",
+        "keywords": []
+      },
+      {
+        "name": "C",
+        "level": "",
+        "keywords": []
+      },
+      {
+        "name": "C++",
+        "level": "",
+        "keywords": []
+      },
+      {
+        "name": "C#",
+        "level": "",
+        "keywords": []
+      },
+      {
+        "name": "HTML",
+        "level": "",
+        "keywords": []
+      },
+      {
+        "name": "SQL",
+        "level": "",
+        "keywords": []
+      },
+      {
+        "name": "Python",
+        "level": "",
+        "keywords": []
+      },
+      {
+        "name": "JavaScript",
+        "level": "",
+        "keywords": []
+      },
+      {
+        "name": "Feuilles de style en cascade (CSS)",
+        "level": "",
+        "keywords": []
+      },
+      {
+        "name": "ASP.NET",
+        "level": "",
+        "keywords": []
+      },
+      {
+        "name": "MySQL",
+        "level": "",
+        "keywords": []
+      },
+      {
+        "name": "ASP.NET MVC",
+        "level": "",
+        "keywords": []
+      },
+      {
+        "name": "Docker",
+        "level": "",
+        "keywords": []
+      },
+      {
+        "name": "Linux",
+        "level": "",
+        "keywords": []
+      },
+      {
+        "name": "Flutter",
+        "level": "",
+        "keywords": []
+      },
+      {
+        "name": "PhpMyAdmin",
+        "level": "",
+        "keywords": []
+      },
+      {
+        "name": ".NET framework",
+        "level": "",
+        "keywords": []
+      },
+      {
+        "name": "Espagnol",
+        "level": "",
+        "keywords": []
+      },
+      {
+        "name": "Android",
+        "level": "",
+        "keywords": []
+      },
+      {
+        "name": "Anglais",
+        "level": "",
+        "keywords": []
+      },
+      {
+        "name": "Assembleur",
+        "level": "",
+        "keywords": []
+      },
+      {
+        "name": "Allemand",
+        "level": "",
+        "keywords": []
+      },
+      {
+        "name": "Architecture MVC",
+        "level": "",
+        "keywords": []
+      }
+    ],
+    "languages": [
+      {
+        "language": "fr",
+        "fluency": "Native Speaker"
+      },
+      {
+        "fluency": "Limited Working",
+        "language": "Allemand"
+      },
+      {
+        "fluency": "Native Speaker",
+        "language": "Anglais"
+      },
+      {
+        "fluency": "Elementary",
+        "language": "Espagnol"
+      }
+    ],
+    "interests": [],
+    "references": [],
+    "projects": [
+      {
+        "name": "Artisashop",
+        "startDate": "2020-09-30",
+        "summary": "Plateforme de mise en relation entre artisans et clients. Créateur de la communauté et des designs.",
+        "url": "https://www.facebook.com/ArtisashopContact/",
+        "endDate": "2020-09-30"
+      }
+    ],
+    "meta": {
+      "version": "v1.0.0",
+      "canonical": "https://github.com/jsonresume/resume-schema/blob/v1.0.0/schema.json"
+    }
+  }

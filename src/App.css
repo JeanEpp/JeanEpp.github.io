@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.App {
+  text-align: center;
+}
+
+.App nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: dark;
+  color: light;
+  padding: 0.5rem 1rem;
+}
+
+.App nav a {
+  color: light;
+  text-decoration: none;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.work {
+  transition: all ease 2s;
+}
