@@ -7,7 +7,7 @@
       "email": "jean.epp@epitech.eu",
       "phone": "+33 6 52 06 57 57",
       "url": "",
-      "summary": "I'm looking for a full-time internship of 4 to 6 mounths and ideally starting in march 2022 end endding at end august 2022 in web, mobile or software development.",
+      "summary": "I'm looking for a full-time internship of 4 to 6 months and ideally starting in march 2023 end ending at end august 2023 in web, mobile or software development.",
       "location": {
         "countryCode": "FR",
         "address": "4 rue Hofgasse ,57820 Dannelbourg, France"
@@ -200,27 +200,12 @@
         "keywords": []
       },
       {
-        "name": "Espagnol",
-        "level": "",
-        "keywords": []
-      },
-      {
         "name": "Android",
         "level": "",
         "keywords": []
       },
       {
-        "name": "Anglais",
-        "level": "",
-        "keywords": []
-      },
-      {
         "name": "Assembleur",
-        "level": "",
-        "keywords": []
-      },
-      {
-        "name": "Allemand",
         "level": "",
         "keywords": []
       },
@@ -231,10 +216,6 @@
       }
     ],
     "languages": [
-      {
-        "language": "fr",
-        "fluency": "Native Speaker"
-      },
       {
         "fluency": "Limited Working",
         "language": "Allemand"

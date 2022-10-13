@@ -1,19 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}"
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     colors: {
-      'dark': '#2A2828',
-      'light': '#F4EBE1',
-      'primary': '#5A202E',
-      'secondary': '#DC6D04',
-      'tertiary': '#79B8F6',
+      'dark': "var(--dark)",
+      'light': "var(--light)",
+      'red': "var(--red)",
+      'orange': "var(--orange)",
+      'blue': "var(--blue)",
     },
     extend: {},
   },
-  plugins: [require('prettier-plugin-tailwindcss')],
-  darkMode: 'class'
-}
+  plugins: [require("prettier-plugin-tailwindcss")],
+  darkMode: "class",
+};
