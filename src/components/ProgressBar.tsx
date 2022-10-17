@@ -2,25 +2,19 @@ import { useEffect } from "react";
 
 function ProgressBar() {
     useEffect(() => {
-        const scrollProgress = document.getElementById('scroll-progress');
+        const scrollProgress = document.getElementById('scroll-progress')!;
         scrollProgress!.style.maxHeight = "100%";
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         window.addEventListener('scroll', () => {
-            const scrollTop = document.documentElement.scrollTop;
-            scrollProgress!.style.height = `${(scrollTop / height) * 100}%`;
-            if (parseInt(document.getElementById("scroll-progress")!.style.height) < parseFloat('100')) {
-                document.getElementById("Skills/Languages")!.classList.remove("border-orange");
-                document.getElementById("Skills/Languages")!.classList.add("border-light");
-            }
-            if (parseInt(document.getElementById("scroll-progress")!.style.height) >= parseInt('100')) {
-                document.getElementById("Skills/Languages")!.classList.remove("border-light");
-                document.getElementById("Skills/Languages")!.classList.add("border-orange");
-            }
+            let timeline = document.getElementById("timeline")!;
+            var rect = timeline.getBoundingClientRect();
+            scrollProgress.style.height = (window.innerHeight - rect.top - window.innerHeight * 0.3) / timeline.scrollHeight * 100 + '%';
+            if (Number.parseFloat(scrollProgress.style.height) < 2)
+                scrollProgress.style.height = '0%';
         });
     })
-    return <div>
+    return <div className="w-[10px]">
             <div className="w-[10px] bg-light h-[100%]">
-                <div id="scroll-progress" className="bg-orange"></div>
+                <div id="scroll-progress" className="bg-orange h-[0%]"></div>
             </div>
         </div>
 }

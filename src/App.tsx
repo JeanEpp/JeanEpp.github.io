@@ -12,10 +12,11 @@ function App() {
 	}, []);
 	return (
 		<div className="App">
-			<nav className="sticky top-0 text-light">
+			<nav className="sticky top-0 text-light bg-dark z-20">
 				<div className="menu">
 					<a href='#Profile'>Profile</a>
-					<a href='#Skills/Languages'>Skills</a>
+					<a href='#Projects'>Projects</a>
+					<a href='#Skills/Languages'>Skills/Languages</a>
 				</div>
 			</nav>
 			<Route path="/" component={Home}></Route>

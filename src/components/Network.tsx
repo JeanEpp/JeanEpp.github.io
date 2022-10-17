@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import Colors from "../Colors"
-import { createPopper } from '@popperjs/core';
+import { arrow, createPopper, popper } from '@popperjs/core';
 
 export interface LanguageObject {
     language: string;
@@ -24,15 +24,17 @@ export function isSkillObject(object: any): object is SkillObject {
 function Network(prop: { skills: (SkillObject | LanguageObject)[] }) {
     let colors = new Colors().colors
     useEffect(() => {
-        let WIDTH = document.getElementById("Skills/Languages")!.offsetWidth;
-        let HEIGHT = 500;
+        let WIDTH = document.querySelector("canvas")!.offsetWidth;
+        let HEIGHT = document.querySelector("canvas")!.offsetHeight;
         let LINK_COLOR = colors['--light'];
         let SQUARE_COLOR = colors['--red'];
         let TEXT_COLOR = colors['--light'];
+        let TEXT_SIZE = document.querySelector('canvas')!.width < 600 ? 20 : 25;
         const SPEED = 1;
         const SQUARE_AMOUNT = prop.skills.length;
         const LINK_RADIUS = document.getElementById("Skills/Languages")!.offsetWidth / 5;
         let mouse: { x: number, y: number } = { x: 0, y: 0 };
+        let popper_t = 0, popper_l = 0;
 
         let canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, squares: Array<Circle> = [], loopId, id;
 
@@ -59,12 +61,12 @@ function Network(prop: { skills: (SkillObject | LanguageObject)[] }) {
         const initElements = () => {
             squares = []
             let x = 150;
-            let y = 40;
+            let y = 20;
             let size_x = 0;
             let object;
             let name: string = "";
             for (let i = 0; i < SQUARE_AMOUNT; i++) {
-                ctx.font = "25px system-ui"
+                ctx.font = TEXT_SIZE + "px system-ui"
                 object = prop.skills[i]
                 if (isSkillObject(object)) {
                     size_x = ctx.measureText(object.name).width + 20;
@@ -77,14 +79,16 @@ function Network(prop: { skills: (SkillObject | LanguageObject)[] }) {
                     x = squares[i - 1].x + squares[i - 1].size_x / 2 + size_x / 2 + 40;
                     if (x + size_x / 2 >= canvas.width) {
                         x = size_x / 2 + 40;
-                        if (canvas.width < 800)
+                        if (canvas.width <= 600)
+                            y += canvas.height / 16;
+                        if (canvas.width > 600 && canvas.width <= 800)
                             y += canvas.height / 8;
-                        if (canvas.width > 800)
-                            y += canvas.height / 7;
-                        if (canvas.width > 1200)
-                            y += canvas.height / 5;
+                        if (canvas.width > 800 && canvas.width <= 1200)
+                            y += canvas.height / 6;
+                        if (canvas.width > 1200 && canvas.width <= 1600)
+                            y += canvas.height / 4;
                         if (canvas.width > 1600)
-                            y += canvas.height / 3;
+                            y += canvas.height / 4;
                     }
                 }
                 squares.push(new Circle(object, x, y, size_x, name))
@@ -152,10 +156,10 @@ function Network(prop: { skills: (SkillObject | LanguageObject)[] }) {
                 this.size_x = size_x
                 this.size_y = 40
                 this.name = name
-                if (isSkillObject(object) && object.level != "")
+                if (isSkillObject(object))
                     this.level = "Level: " + object.level
-                if (isLanguageObject(object) && object.fluency != "")
-                    this.fluency += "Fluency: " + object.fluency
+                else
+                    this.fluency = "Fluency: " + object.fluency
             }
 
             update = () => {
@@ -198,25 +202,30 @@ function Network(prop: { skills: (SkillObject | LanguageObject)[] }) {
                     this.y += 0;
                     this.hover = true
                     popperInstance.update();
-                    document.querySelector('#tooltip')!.classList.remove("hidden")
+                    document.getElementById('tooltip')!.classList.remove("hidden");
                     if (this.level != "")
-                        document.querySelector('#tooltip')!.innerHTML = this.level
+                        document.getElementById('tooltip')!.innerHTML = this.level
                     if (this.fluency != "")
-                        document.querySelector('#tooltip')!.innerHTML = this.fluency
+                        document.getElementById('tooltip')!.innerHTML = this.fluency
+                    popper_t = this.d.t * -1;
+                    let text = this.level !== "" ? this.level : this.fluency;
+                    ctx.font = 9 + "px system-ui"
+                    popper_l = this.d.l + this.size_x / 2 - ctx.measureText(text).width;
+                    ctx.font = TEXT_SIZE + "px system-ui"
                 } else {
                     this.x += this.vector.x;
                     this.y += this.vector.y;
                     this.hover = false
                     if (!squares.find(elem => elem.hover == true)?.hover) {
-                        document.querySelector('#tooltip')!.classList.add("hidden")
-                        document.querySelector('#tooltip')!.innerHTML = ""
+                        document.getElementById('tooltip')!.classList.add("hidden")
+                        document.getElementById('tooltip')!.innerHTML = ""
                     }
                 }
             }
 
             draw = () => {
                 ctx.beginPath();
-                ctx.font = "25px system-ui"
+                ctx.font = TEXT_SIZE + "px system-ui"
                 ctx.fillStyle = SQUARE_COLOR;
                 ctx.fillRect(this.x - this.size_x / 2, this.y - this.size_y / 2, this.size_x, this.size_y);
                 ctx.fillStyle = TEXT_COLOR;
@@ -226,42 +235,43 @@ function Network(prop: { skills: (SkillObject | LanguageObject)[] }) {
             }
         }
 
-        let popperInstance : any;
+        let popperInstance: any;
         (() => {
-            const test = document.querySelector('canvas');
-            const tooltip = document.querySelector('#tooltip');
+            const test = document.querySelector('canvas')!;
+            const tooltip = document.getElementById('tooltip')!;
             popperInstance = createPopper(test as HTMLElement, tooltip as HTMLElement, {
-            placement: 'top',
-            modifiers: [
-                {
-                    name: 'offset',
-                    options: {
-                        offset: [0, 8],
-                    },
-                },
-            ],
-        });
+                placement: 'top-start',
+                modifiers: [
+                    {
+                        name: 'offset',
+                        options: {
+                            offset: (() => {return [popper_l, popper_t + 5]})
+                        }
+                    }
+                ],
+            })
             window.addEventListener('resize', function () {
                 canvas.width = document.getElementById("Skills/Languages")!.offsetWidth;
-                canvas.height = 500;
+                canvas.height = document.getElementById("Skills/Languages")!.offsetHeight;
                 resizeReset()
             });
             init()
         })()
 
         window.addEventListener('scroll', () => {
-            if (parseInt(document.getElementById("scroll-progress")!.style.height) < parseFloat('100')) {
-                LINK_COLOR = colors['--light']
-            }
-            if (parseInt(document.getElementById("scroll-progress")!.style.height) >= parseInt('100')) {
-                LINK_COLOR = colors['--orange']
-            }
+            let network = document.getElementById("Skills/Languages")!.children[0];
+            let canvass = document.getElementById("Skills/Languages")!.children[1];
+            let rect = network.getBoundingClientRect();
+            (network as HTMLElement).style.borderColor = (window.innerHeight - rect.top <= window.innerHeight * 0.3) ? colors['--light'] : colors['--orange'];
+            (canvass as HTMLElement).style.borderColor = (window.innerHeight - rect.top <= window.innerHeight * 0.4) ? colors['--light'] : colors['--orange'];
+            LINK_COLOR = (window.innerHeight - rect.top <= window.innerHeight * 0.4) ? colors['--light'] : colors['--orange'];
         });
     })
 
-    return <div className="border-light border-8 border-solid transition-colors" style={{ "borderRadius": "15px" }} id="Skills/Languages">
-        <canvas className="max-w-full w-full transition-all"></canvas>
-        <div className="hidden bg-light px-2" id="tooltip" role="tooltip" style={{borderRadius: 5}}>
+    return <div id="Skills/Languages">
+        <h2 className="text-4xl text-light leading-8 font-semibold pb-6 pt-4 border-y-8 text-slate-700 transition-colors">Skills/Languages</h2>
+        <canvas className="border-b-8 border-solid transition-colors md:h-[500px] h-[1000px] max-w-full w-full"></canvas>
+        <div className="hidden bg-light px-2 rounded" id="tooltip" role="tooltip">
             <div id="arrow" data-popper-arrow></div>
         </div>
     </div>
