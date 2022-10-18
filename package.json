@@ -1,0 +1,39 @@
+{
+  "name": "jean-s-resume",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently --kill-others \"vite\" \"npx tailwindcss -i ./src/App.css -o ./dist/main.css --watch\"",
+    "build": "npx tailwindcss -i ./src/App.css -o ./dist/main.css && tsc && vite build",
+    "deploy": "bash ./deploy.sh",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.6",
+    "@types/react-router-dom": "5.3.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-popper": "^2.3.0",
+    "react-router-dom": "5.3.0",
+    "three": "^0.145.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.8.3",
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "@types/three": "^0.144.0",
+    "@vitejs/plugin-react": "^2.1.0",
+    "autoprefixer": "^10.4.12",
+    "concurrently": "^7.4.0",
+    "date-fns": "^2.29.3",
+    "eslint": "^8.24.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "postcss": "^8.4.17",
+    "prettier": "^2.7.1",
+    "prettier-plugin-tailwindcss": "^0.1.13",
+    "tailwindcss": "^3.1.8",
+    "typescript": "^4.6.4",
+    "vite": "^3.1.0"
+  }
+}
